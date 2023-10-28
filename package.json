@@ -1,0 +1,15 @@
+{
+  "name": "todo_list_nodejs_project",
+  "version": "1.0.0",
+  "description": "a todo list app",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ranik",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
