@@ -1,0 +1,76 @@
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TODO App</title>
+    <style>
+        
+    </style>
+    <link rel="stylesheet" type="text/css" href="/css/home.css">
+        <script src="https://kit.fontawesome.com/e9fcc18b14.js" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+</head>
+
+<body>
+    
+    <div class="form_class">
+        <h1>TODO App</h1>
+        <form action="/create_todo" method="post">
+        <div class="desc_Class">
+            <span id="desc-span">Description</span>
+            <input type="textarea" required name="desc" placeholder="what do you need to do?"> 
+        </div>
+        <div class="select_and_input">
+            <span id="cat-span">Category</span>
+            <select name="category" required>
+                <option value="" disabled selected>Choose a Category</option>
+                <option>Personal</option>
+                <option>Work</option>
+                <option>Cleaning</option>
+                <option>Others</option>
+            </select>
+            <span id="date-span">DueDate</span>
+            <input class="datesValues" type="date" name="dateValue" placeholder="dd/mm/yyyy" required>
+        </div>
+        <div class="submit-buttons">
+            <button class="buttonDesign colorBlack" id="submitButton" type="submit"><i class="fa fa-plus-square" > </i> Add Task</button>
+          
+        </form>
+        <form action="/delete_todo" method="post">
+            <button class="buttonDesign colorRed" id="deleteButton" type="submit"><i class="fa fa-trash-o"></i> Delete Task</button>
+        </form> 
+    </div>   
+    </div>
+
+<!-- for displaying TODO lists -->
+    <div>
+        
+        <% for(let i of todoList) { let j=0; let newIds='descids'+j; %>
+            <div class="singleTask">
+                <div class="display">
+                <input type="checkbox" name="delechack" class="delechack" onclick="checkedOrNot()" uid = <%= i._id %> >
+                <div class="name_and_dueDate">
+                    <p ><%= i.desc %></p>
+                    <p ><%= i.dueDate %></p>
+                </div>
+            </div>
+            <div class="display">
+                <div class="catesec">
+                    <%= i.category %>
+                </div>
+                    <div style="width: 0px;"></div>
+            </div>
+        </div>
+            <% j++; } %>
+
+    </div>
+
+
+    <script src="/js/script.js"></script>
+</body>
+
+</html>
